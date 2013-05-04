@@ -155,20 +155,23 @@
           </p>
 
           <h2 id="7">Source Control</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
-            Eos minus eveniet odio corporis id ea. 
-            Optio placeat fuckin' right, all right so you cry still, 
-            tears all in the pillow case excepturi optio tempore.
+            <p>As long as you checked the 'Create local git repository' back in step 1, if you change or add something in a file, that file should show up Modified in XCode, as seen by the 'M' to the right of the file name
           </p>
-          <p>Dolore accusantium they lovin the crew rerum explicabo blanditiis omnis. 
-            Labore do you love this shit? temporibus est doloremque aut alias. 
-            Et aliquid recusandae laboriosam rem quia aut. 
-            Dicta neque similique quos consectetur illum dolores.
+          <img src="images/GitModified.png"/>
+          <p>Let's say we want to commit this change, we can do this two ways. The first being through the GUI of XCode. First, right click on the modified file, and then select Source Control->Commit Selected Files.
           </p>
-          <p>Eius exercitationem quidem ipsam aohhh, that's how you feel man? 
-            cause we blowin like a c4. Quod saepe in qui doloribus eum. 
-            Sunt eum ullam odit amet exercitationem they lovin the crew neque. 
-            Qui sed enim consequuntur illum laboriosam voluptatem.
+          <img src="images/CommitMenu.png"/>
+          <p> Then a screen with the diff of the previous commit and your soon to be new commit will appear, add a commit message at the bottom and then select the 'Commit X Files' button to commit the changes 
+          </p>
+          <img src="images/AcutalCommit.png"/>
+          <p>You can also do this through using the command line: Make a change to a file in your project, it will show up as Modified in XCode, then on the command line, go to the path of your project. If you type <code> git status</code> you should see that the file you changed is listed as modified. 
+          </p>
+          <p>To commit the file, simply type <code> git commit -am "My commit message"</code> and this will automatically commit any tracked files (in this case, just our modified file)
+          </p>
+          <p>To add files to your git repo, in XCode, add a new file simply with File->New File. An 'A' should show up next to your new file, showing it has been added since the last commit. To commit through XCode use the same steps from above: Right click file->Source Control->Commit Selected Files, and then write your commit message and commit.
+          </p>
+          <img src="images/GitAdded.png"/>
+          <p>To add a file to your git repo on the command line, simply type <code> git add mynewfile.h </code> and then when you type <code> git status </code> the newly added file should show up as added. Then simply write, as seen above, <code> git commit -am "My commit message: Commiting my new file"</code> and your newly added file will be commited.
           </p>
           <hr>
         </section>
