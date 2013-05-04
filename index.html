@@ -119,11 +119,8 @@ while (!infile.eof()) {
 <h4>Option 2</h4>
 
 <p>Another option is to create the input files right within XCode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within XCode.
-  <br>First, create the new file in XCode via File->New->File (or skip this and drag a file into XCode).</p>
-            <img src="images/fstream1.png">
-            <p>You'll probably just want an empty file. For our example name it file1.txt</p>
-             <img src="images/fstream2.png">
-
+  <br>First, create a new empty file in XCode via File->New->File (or skip this and drag a file into XCode).</p>
+          
 <p>Then, click on the project name right above your list of files. Go to the Build Phases tab, and you'll see this:</p>
             <img src="images/fstream3.png">
 <p>Add your input file to the copy files section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may notice a project1.1 as a copy file. Feel free to remove that.</p>
