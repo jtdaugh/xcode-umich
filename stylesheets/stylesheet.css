@@ -155,9 +155,9 @@ aside a.button {
   display: block;
   background-color: #2e7bcf;
     color: #fff;
-  border-radius: 10px;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
+  border-radius: 5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
   margin-bottom: 20px;
   font-size: 15px;
 }
@@ -165,11 +165,6 @@ aside a.button:hover {
   
   background-color: #3985d8;
     color: #eee;
-  border-radius: 10px;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  margin-bottom: 20px;
-  font-size: 15px;
 }
 
 code, pre {

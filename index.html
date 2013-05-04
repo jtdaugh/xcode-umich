@@ -104,22 +104,31 @@
           <p><b>REMEMBER TO COMMENT THIS CODE OUT OR DELETE IT BEFORE YOU SUBMIT OR TEST ON CAEN, INPUT WILL NOT WORK IF THIS CODE IS STILL THERE</b>
           </p>
           <h2 id="4">Input and Output files - fstream</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
-            Eos minus eveniet odio corporis id ea. 
-            Optio placeat fuckin' right, all right so you cry still, 
-            tears all in the pillow case excepturi optio tempore.
-          </p>
-          <p>Dolore accusantium they lovin the crew rerum explicabo blanditiis omnis. 
-            Labore do you love this shit? temporibus est doloremque aut alias. 
-            Et aliquid recusandae laboriosam rem quia aut. 
-            Dicta neque similique quos consectetur illum dolores.
-          </p>
-          <p>Eius exercitationem quidem ipsam aohhh, that's how you feel man? 
-            cause we blowin like a c4. Quod saepe in qui doloribus eum. 
-            Sunt eum ullam odit amet exercitationem they lovin the crew neque. 
-            Qui sed enim consequuntur illum laboriosam voluptatem.
-          </p>
+           <p>Using ifstream and ofstream is pretty simple in XCode, and there are (at least) two methods to do so. Here's an example that uses an ifstream. It will copy the contents from file1.txt to file2.txt:</p>
+           <pre>
+ifstream infile("file1.txt");
+ofstream outfile("file2.txt");
+string temp;
+while (!infile.eof()) {
+  getline(infile,temp);
+  outfile << temp;
+}</pre>
+<h4>Option 1</h4>
+<p>The first option is to place the file(s) into the products directory where the excecutable is.<br>Right click on the products directory and click Show in Finder. Put your input files in there, and find your output files there after running.</p>
+          <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
+<h4>Option 2</h4>
 
+<p>Another option is to create the input files right within XCode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within XCode.
+  <br>First, create the new file in XCode via File->New->File (or skip this and drag a file into XCode).</p>
+            <img src="images/fstream1.png">
+            <p>You'll probably just want an empty file. For our example name it file1.txt</p>
+             <img src="images/fstream2.png">
+
+<p>Then, click on the project name right above your list of files. Go to the Build Phases tab, and you'll see this:</p>
+            <img src="images/fstream3.png">
+<p>Add your input file to the copy files section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may notice a project1.1 as a copy file. Feel free to remove that.</p>
+            <img src="images/fstream4.png">
+<p>You're all set. Modify the input file in XCode, and it will copy it into the products directory when you Run. To find the output file, find it in the products directory like in Option 1.</p>
           <h2 id="5">Debugging</h2>
             <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
             Eos minus eveniet odio corporis id ea. 
@@ -174,15 +183,17 @@
         </section>
 
         <aside id="sidebar">
-          <p>Last Updated for Xcode 4.5.2</p>
-
+          
           <p class="side-header">Some other great C++ and UMich CS Links:</p>
-          <p><a class="button" href="#" target="_blank">A cleaner solution for handling command line arguments.</a></p> 
-          <p><a class="button" href="#" target="_blank">Setting up private git repos on CAEN.</a></p> 
+          <p><a class="button" href="http://ryngonzalez.github.io/OptionHandler/" target="_blank">A cleaner solution for handling command line arguments.</a></p> 
+          <p><a class="button" href="http://ottosipe.github.io/git-notes/" target="_blank">Setting up private git repos on CAEN.</a></p> 
           <p><a class="button" href="http://shoulditake381.com" target="_blank">Debating whether to take EECS 381?</a></p> 
 
           <br/><br/>
           <p>Created by <a href="http://jessedaugherty.com" target="_blank">Jesse Daugherty</a> and <a href="http://twitter.com/CEWendel" target="_blank">Chris Wendel</a></p>
+          <p>Last Updated for Xcode 4.5.2</p>
+          <p><a class="button" href="#" target="_blank">Download a sample project featuring these tips.</a></p> 
+
         </aside>
       </div>
     </div>
