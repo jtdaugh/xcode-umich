@@ -237,11 +237,12 @@ form {
 .block-m {
   position:absolute;
   top:-10px;
-  right:-40px;
+  right:-34px;
   width:250px;
 }
 
 .side-header {
+  color:#474747;
   font-size: 18px;
   font-weight: bold;
 }
@@ -329,7 +330,8 @@ h6:before {
 }
 
 p {
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
  
 a {
