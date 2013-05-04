@@ -211,7 +211,7 @@ $ cd classDir/project1
       var href = $.attr(this, 'href');
       $root.animate({
         scrollTop: $(href).offset().top
-      }, 500, function () {
+      }, 800, function () {
         window.location.hash = href;
       });
     return false;
@@ -224,7 +224,7 @@ $ cd classDir/project1
       }
     });
     $('#backtotop').click(function() {
-      $('body,html').animate({scrollTop:0},500);
+      $('body,html').animate({scrollTop:0},800);
     });
   </script>
   </body>
