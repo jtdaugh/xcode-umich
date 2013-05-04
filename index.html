@@ -74,22 +74,24 @@
           </p>
           
           <h2 id="3">Input Redirection - stdin</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
-            Eos minus eveniet odio corporis id ea. 
-            Optio placeat fuckin' right, all right so you cry still, 
-            tears all in the pillow case excepturi optio tempore.
+            <p>Let's say your project spec wants you just read input from cin, something like this:</p>
+            <code> ./myExecutable < inputFile.txt </code>
           </p>
-          <p>Dolore accusantium they lovin the crew rerum explicabo blanditiis omnis. 
-            Labore do you love this shit? temporibus est doloremque aut alias. 
-            Et aliquid recusandae laboriosam rem quia aut. 
-            Dicta neque similique quos consectetur illum dolores.
+          <p>There is no straightforward way to do this in XCode, but there is a somewhat simple workaround. First, run your project and make sure it outputs "Hello, World!" to the Xcode Console. Then to add your input file, right click on your executable name in the 'Products' group in the XCode Project Navigator and select 'Show In Finder' 
           </p>
-          <p>Eius exercitationem quidem ipsam aohhh, that's how you feel man? 
-            cause we blowin like a c4. Quod saepe in qui doloribus eum. 
-            Sunt eum ullam odit amet exercitationem they lovin the crew neque. 
-            Qui sed enim consequuntur illum laboriosam voluptatem.
+          <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
+          <p>Put your input text file in the same directory as your executable (this way XCode can find it when it is running your program)
           </p>
-
+          <p>Next go to Project->Edit Scheme and add an environment variable with the value of your text file name
+          </p>
+          <img src="images/EnvironmentVar.png">
+          <p>Finally, in your main function (before you do any input processing) add the following:</br> <code> ifstream arq(getenv("MYARQ"));</br>
+            cin.rdbuf(arq.rdbuf());</code>
+          </p>
+          <p>Now cin will behave the same as if you redirected the contents of a text file to a program, as seen above
+          </p>
+          <p><b>REMEMBER TO COMMENT THIS CODE OUT OR DELETEIT BEFORE YOU SUBMIT OR TEST ON CAEN, INPUT WILL NOT WORK IF THIS CODE IS STILL THERE</b>
+          </p>
           <h2 id="4">Input and Output files - fstream</h2>
             <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
             Eos minus eveniet odio corporis id ea. 
