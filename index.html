@@ -183,11 +183,13 @@ $ cd classDir/project1
 
           <p>Then just compile and test your program! If you notice any new bugs or compilation errors, there are some common causes due to the differences between Xcode and CAEN:
             <ul>
-              <li>Xcode automatically includes some files. Explicitly '#include' any libraries or files you need.</li>
-              <li>Pseudo number generation works differently on OS X than it does on the CAEN machines. If your project ever has you using <code>srand()</code>, you WILL see a difference between the random numbers generated on OS X and CAEN.</li>
-              <li>XCode by default uses the Clang compiler. Sometimes you can run into bugs on CAEN that did not exist on OS X if you do declare a null pointer like this:</br> <code>MyObject *myPointer;</code></br>If you are initializing a pointer to null in C++11, always do this:</br><code>MyObject *myPointer = nullptr;</code>
+              <li style="margin-top:10px;">Xcode will automatically compile with C++11. If you need C++11, Add the <code>-std=c++0x</code> flag when compiling on CAEN, or check that it is in your Makefile.</li> 
+              <li style="margin-top:10px;">Xcode automatically includes some files. Explicitly <code>#include</code> any libraries or files you need.</li>
+              <li style="margin-top:10px;">Pseudo-random number generation. If your project ever has you using <code>srand(CONSTANT)</code>, which we've seen in EECS 281, you WILL see a difference between the 'random' numbers generated on OS X and CAEN. If you are seeding based on time do not worry about this.</li>
+              <li style="margin-top:10px;">Xcode by default uses the Clang compiler. Sometimes you can run into bugs on CAEN that did not exist on OS X if you declare a null pointer like this:</br> <code>MyObject *myPointer;</code></br>If you are initializing a pointer to null in C++11, always do this:</br><code>MyObject *myPointer = nullptr;</code>
             </ul>
           </p>
+          <br><br><p>We hope this guide will help you with some of your C++ projects at Michigan. If you have any other tips for us to add, or if you or need clarification on something, feel free to email <a href="mailto:jtdaugh@umich.edu">Jesse</a> or <a href="mailto:chriwend@umich.edu">Chris</a>.
         </section>
 
         <aside id="sidebar">
