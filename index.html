@@ -184,6 +184,8 @@ $ cd classDir/project1
           <p>Then just compile and test your program! If you notice any new bugs or compilation errors, there are some common causes due to the differences between Xcode and CAEN:
             <ul>
               <li>Xcode automatically includes some files. Explicitly '#include' any libraries or files you need.</li>
+              <li>Pseudo number generation works differently on OS X than it does on the CAEN machines. If your project ever has you using <code>srand()</code>, you WILL see a difference between the random numbers generated on OS X and CAEN.</li>
+              <li>XCode by default uses the Clang compiler. Sometimes you can run into bugs on CAEN that did not exist on OS X if you do declare a null pointer like this:</br> <code>MyObject *myPointer;</code></br>If you are initializing a pointer to null in C++11, always do this:</br><code>MyObject *myPointer = nullptr;</code>
             </ul>
           </p>
         </section>
