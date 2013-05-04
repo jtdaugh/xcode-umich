@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>C++ in XCode</h1>
-        <h2>Tips for C++ (and some C) Development in XCode. Tuned to the needs of many classes at Michigan.</h2>
+        <h2>Tips for C++ development in XCode. Tuned to the needs of many classes at Michigan.</h2>
         <!-- <a href="https://github.com/jtdaugh/xcode-umich" class="button"><small>View project on</small>GitHub</a> -->
         <img class="block-m" src="images/block_m.png"/>
         <!-- <div style="clear:both;"/> -->
@@ -43,36 +43,28 @@
 
 
           <h2 id="1">Creating the Project</h2>
-          <p>After opening XCode, go to File->New->Project
-          </p>
+          <p>After opening XCode, go to File->New->Project</p>
           <img src="images/MenuBar.png"/>
-          <p>In the OS X section, select 'Application' and then select the 'Command Line Tool' option. Then Press Next
-          </p>
+          <p>In the OS X section, select 'Application' and then select the 'Command Line Tool' option. Then Press Next</p>
           <img src="images/SelectType.png">
-          <p>Name your project and set it's 'Type' to C++
-          </p>
+          <p>Name your project and set it's 'Type' to C++</p>
           <img src="images/ProjectName.png">
-          <p>On the next screen select where you your project will be saved and remember to check 'Create local git repository for this project'
-          </p>
+          <p>On the next screen select where you your project will be saved and remember to check 'Create local git repository for this project'</p>
           <img src="images/GitCheck.png">
+          
           
           <h2 id="2">Command Line Arguments</h2>
           <p>Many projects will require your program to accept several command line arguments. 
             Let's use an example where we have three arguments, arg1, arg2 and arg3. 
             If you ran the excecutable from the command line, it would look something like this:
-            <code>
-              ./project1 arg1 arg2 arg3
-            </code>
           </p>
+          <code>
+            ./project1 arg1 arg2 arg3
+          </code>
           <p>
-            Sidenote: 
-            <code>
-              ./project1 arg1 arg2 arg3 < infile.txt
-            </code>
-            Here, infile.txt is NOT a command line argument visible to the program. 
+            Sidenote: <code>./project1 arg1 arg2 arg3 < infile.txt</code> Here, infile.txt is NOT a command line argument visible to the program. 
             It is a redirection to stdin, and is discussed in the next section.
           </p>
-          
           <p> Anyway... To add these three arguments in XCode, go to Project->Edit Scheme</p>
           <img src="images/args1.png">
           <p>...or click on the project name right next to the Run Button.</p>
@@ -81,7 +73,7 @@
           <img src="images/args3.png">
           <p>Add whatever arguments you need in the 'Arguments Passed on Launch' box, and click okay. In this case, we add arg1, arg2 and arg3.</p>
           <img src="images/args4.png">
-          <p>Voila, you will now have these three arguments acessible to you as argv[1], 2 and 3.
+          <p>Voila, you will now have these three arguments acessible to you as argv[1], 2 and 3.</p>
 
 
           <h2 id="3">Input Redirection - stdin</h2>
@@ -103,8 +95,11 @@
           </p>
           <p><b>REMEMBER TO COMMENT THIS CODE OUT OR DELETE IT BEFORE YOU SUBMIT OR TEST ON CAEN, INPUT WILL NOT WORK IF THIS CODE IS STILL THERE</b>
           </p>
+          
+
           <h2 id="4">Input and Output files - fstream</h2>
            <p>Using ifstream and ofstream is pretty simple in XCode, and there are (at least) two methods to do so. Here's an example that uses an ifstream. It will copy the contents from file1.txt to file2.txt:</p>
+           
            <pre>
 ifstream infile("file1.txt");
 ofstream outfile("file2.txt");
@@ -113,21 +108,24 @@ while (!infile.eof()) {
   getline(infile,temp);
   outfile << temp;
 }</pre>
-<h4>Option 1</h4>
-<p>The first option is to place the file(s) into the products directory where the excecutable is.<br>Right click on the products directory and click Show in Finder. Put your input files in there, and find your output files there after running.</p>
-          <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
-<h4>Option 2</h4>
 
-<p>Another option is to create the input files right within XCode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within XCode.
-  <br>First, create a new empty file in XCode via File->New->File (or skip this and drag a file into XCode).</p>
+          <h4>Option 1</h4>
+          <p>The first option is to place the file(s) into the products directory where the excecutable is.
+            <br>Right click on the products directory and click Show in Finder. Put your input files in there, and find your output files there after running.</p>
+          <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
           
-<p>Then, click on the project name right above your list of files. Go to the Build Phases tab, and you'll see this:</p>
-            <img src="images/fstream3.png">
-<p>Add your input file to the copy files section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may notice a project1.1 as a copy file. Feel free to remove that.</p>
-            <img src="images/fstream4.png">
-<p>You're all set. Modify the input file in XCode, and it will copy it into the products directory when you Run. To find the output file, find it in the products directory like in Option 1.</p>
+          <h4>Option 2</h4>
+          <p>Another option is to create the input files right within XCode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within XCode.
+            <br>First, create a new empty file in XCode via File->New->File (or skip this and drag a file into XCode).</p>
+          <p>Then, click on the project name right above your list of files. Go to the Build Phases tab, and you'll see this:</p>
+          <img src="images/fstream3.png">
+          <p>Add your input file to the copy files section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may notice a project1.1 as a copy file. Feel free to remove that.</p>
+          <img src="images/fstream4.png">
+          <p>You're all set. Modify the input file in XCode, and it will copy it into the products directory when you Run. The output file will be in the products directory like in Option 1.</p>
+          
+
           <h2 id="5">Debugging</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
+          <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
             Eos minus eveniet odio corporis id ea. 
             Optio placeat fuckin' right, all right so you cry still, 
             tears all in the pillow case excepturi optio tempore.
@@ -143,8 +141,9 @@ while (!infile.eof()) {
             Qui sed enim consequuntur illum laboriosam voluptatem.
           </p>
           
+
           <h2 id="6">Editing Schemes</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
+          <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
             Eos minus eveniet odio corporis id ea. 
             Optio placeat fuckin' right, all right so you cry still, 
             tears all in the pillow case excepturi optio tempore.
@@ -159,9 +158,10 @@ while (!infile.eof()) {
             Sunt eum ullam odit amet exercitationem they lovin the crew neque. 
             Qui sed enim consequuntur illum laboriosam voluptatem.
           </p>
+
 
           <h2 id="7">Source Control</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
+          <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
             Eos minus eveniet odio corporis id ea. 
             Optio placeat fuckin' right, all right so you cry still, 
             tears all in the pillow case excepturi optio tempore.
