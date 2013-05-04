@@ -88,8 +88,11 @@
           <p>Next go to Project->Edit Scheme and add an environment variable with the value of your text file name
           </p>
           <img src="images/EnvironmentVar.png">
-          <p>Finally, in your main function (before you do any input processing) add the following:</br> <code> ifstream arq(getenv("MYARQ"));</br>
-            cin.rdbuf(arq.rdbuf());</code>
+          <p>Finally, in your main function (before you do any input processing) add the following:</br> 
+<pre>
+ifstream arq(getenv("MYARQ"));
+cin.rdbuf(arq.rdbuf());
+</pre>
           </p>
           <p>Now cin will behave the same as if you redirected the contents of a text file to a program, as seen above
           </p>
@@ -169,6 +172,8 @@ while (!infile.eof()) {
           <p class="side-header">Some other great C++ and UMich CS Links:</p>
           <p><a class="button" href="http://ryngonzalez.github.io/OptionHandler/" target="_blank">A cleaner solution for handling command line arguments.</a></p> 
           <p><a class="button" href="http://ottosipe.github.io/git-notes/" target="_blank">Setting up private git repos on CAEN.</a></p> 
+          <p><a class="button" href="http://cplusplus.com" target="_blank">cplusplus.com, a classic</a></p> 
+
           <p><a class="button" href="http://shoulditake381.com" target="_blank">Debating whether to take EECS 381?</a></p> 
 
           <br/><br/><br/>
