@@ -21,7 +21,7 @@
     <header>
       <div class="inner">
         <h1>C++ in Xcode</h1>
-        <h2>Tips for C++ development in Xcode. Tuned to the needs of many classes at Michigan.</h2>
+        <h2>Tired of Vim? Here's tips for C++ development in Xcode. Tuned to the needs of many classes at UM.</h2>
         <!-- <a href="https://github.com/jtdaugh/xcode-umich" class="button"><small>View project on</small>GitHub</a> -->
         <img class="block-m" src="images/block_m.png"/>
         <!-- <div style="clear:both;"/> -->
@@ -31,6 +31,7 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
+          <p></p>
           <h1>Contents:</h1>
           <ol>
             <li><a href="#1">Creating the Project</a></li>
@@ -40,13 +41,15 @@
             <li><a href="#5">Debugging</a></li>
             <!-- <li><a href="#6">Editing Schemes</a></li> -->
             <li><a href="#7">Source Control</a></li>
+            <li><a href="#8">Testing on CAEN</a></li>
+
           </ol>
 
 
           <h1 id="1">Creating the Project</h1>
           <p style="margin-top:7px;">After opening Xcode, go to File->New->Project</p>
           <img src="images/create1.png"/>
-          <p>In the OS X section, select 'Application' and then select the 'Command Line Tool' option. Then Press Next</p>
+          <p>In the OS X section, select 'Application' and then select the 'Command Line Tool' option. Then press 'Next'</p>
           <img src="images/create2.png">
           <p>Name your project and set it's 'Type' to C++</p>
           <img src="images/create3.png">
@@ -57,31 +60,31 @@
           <h1 id="2">Command Line Arguments</h1>
           <p style="margin-top:7px;">Many projects will require your program to accept several command line arguments. 
             Let's use an example where we have three arguments, arg1, arg2 and arg3. 
-            If you ran the excecutable from the command line, it would look something like this:
+            If you ran the excecutable from the command line, it would look like this:
           </p>
           <code>
             ./project1 arg1 arg2 arg3
           </code>
           <p>
             Sidenote: <code>./project1 arg1 arg2 arg3 < infile.txt</code> Here, infile.txt is NOT a command line argument visible to the program. 
-            It is a redirection to stdin, and is discussed in the next section.
+            It is a redirection to stdin, and is discussed in the <a href="#3">next section</a>.
           </p>
           <p> Anyway... To add these three arguments in Xcode, go to Project->Edit Scheme</p>
           <img src="images/args1.png">
-          <p>...or click on the project name right next to the Run Button.</p>
+          <p>...or click on the project name right next to the Run button.</p>
           <img src="images/args2.png">
           <p>This window will pop up. If you see something different, make sure you have selected 'Run' on the left, and 'Arguments' on top</p>
           <img src="images/args3.png">
-          <p>Add whatever arguments you need in the 'Arguments Passed on Launch' box, and click okay. In this case, we add arg1, arg2 and arg3.</p>
+          <p>Add whatever arguments you need in the 'Arguments Passed on Launch' box, and click Okay. In this case, we add arg1, arg2 and arg3.</p>
           <img src="images/args4.png">
-          <p>Voila, you will now have these three arguments acessible to you as argv[1], 2 and 3.</p>
+          <p>Voila! You will now have these three arguments acessible to you as argv[1], 2 and 3.</p>
 
 
           <h1 id="3">Input Redirection - stdin</h1>
-            <p style="margin-top:7px;">Let's say your project spec wants you just read input from cin, something like this:</p>
+            <p style="margin-top:7px;">Let's say your project spec wants you to use a file as input, but using cin (NOT ifstream). Something like this:</p>
             <code> ./myExecutable < inputFile.txt </code>
           </p>
-          <p>There is no straightforward way to do this in Xcode, but there is a somewhat simple workaround. First, run your project and make sure it outputs "Hello, World!" to the Xcode Console. Then to add your input file, right click on your executable name in the 'Products' group in the Xcode Project Navigator and select 'Show In Finder' 
+          <p>There is no straightforward way to do this in Xcode, but there is a somewhat simple workaround. First, run your project and make sure it outputs "Hello, World!" to the Xcode Console. Then, to add your input file, right click on your executable name in the 'Products' group in the Xcode Project Navigator and select 'Show In Finder' 
           </p>
           <img src="images/redirect1.png">
           <p>Put your input text file in the same directory as your executable (this way Xcode can find it when it is running your program)
@@ -115,15 +118,15 @@ while (!infile.eof()) {
 
           <h4>Option 1</h4>
           <p style="margin-top:7px;">The first option is to place the file(s) into the products directory where the excecutable is.
-            <br>Right click on the products directory and click Show in Finder. Put your input files in there, and find your output files there after running.</p>
+            <br>Right click on the products directory and click 'Show in Finder'. Put your input files in there, and find your output files there after running.</p>
           <img src="images/redirect1.png" alt="fuckyouandrew.com">
           
           <h4 style="margin-top:15px;">Option 2</h4>
           <p style="margin-top:7px;">Another option is to create the input files right within Xcode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within Xcode.
             <br>First, create a new empty file in Xcode via File->New->File (or skip this and drag a file into Xcode).</p>
-          <p>Then, click on the project name right above your list of files. Go to the Build Phases tab, and you'll see this:</p>
+          <p>Then, click on the project name right above your list of files. Go to the 'Build Phases' tab, and you'll see this:</p>
           <img src="images/fstream3.png">
-          <p>Add your input file to the copy files section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may notice a project1.1 as a copy file. Feel free to remove that.</p>
+          <p>Add your input file to the 'Copy Files' section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may see project1.1 as a copy file. Feel free to remove that.</p>
           <img src="images/fstream4.png">
           <p>You're all set. Modify the input file in Xcode, and it will copy it into the products directory when you Run. The output file will be in the products directory like in Option 1.</p>
           
@@ -131,7 +134,7 @@ while (!infile.eof()) {
           <h1 id="5">Debugging</h1>
           <p style="margin-top:7px;">Debugging is pretty awesome in Xcode, and will save you a lot of headache versus using GDB via the command line. To place a breakpoint at a line, click the area immediately to the left of that line of code.</p>
           <img src="images/debug1.png">
-          <p>To enable breakpoints, make sure the 'Breakpoints' button on the top Xcode toolbar is turned on. It will automatically turn on when you set your first breakpoint. In the Navigator on the left, there is also a Breakpoints tab. Here, you can see all of your breakpoints by file, and modify &amp; delete the breakpoints. With this tab selected, the '+' in the bottom left corner of Xcode will allow you to add breakpoints as well. Turning on exception breakpoints can be useful as it occasionally will indicate the bring you to the of a seg fault.</p>
+          <p>To enable breakpoints, make sure the 'Breakpoints' button on the top Xcode toolbar is turned on. It will automatically turn on when you set your first breakpoint. In the Navigator on the left, there is also a Breakpoints tab. Here, you can see all of your breakpoints by file, and modify &amp; delete the breakpoints. With this tab selected, the '+' in the bottom left corner of Xcode will allow you to add breakpoints as well. Turning on exception breakpoints can be useful as it occasionally will bring you to the cause of a seg fault.</p>
           <img src="images/debug2.png">
 
           <p>When your project hits a breakpoint, you will be presented with the debug window. Here, you have a snapshot of active variables, and the usual options to 'Continue,' 'Step over,' 'Step Into' and 'Step Out.' If you don't see the debug window, you may have the console expanded too much, so click the button right above the right side of the console.</p>
@@ -147,7 +150,7 @@ while (!infile.eof()) {
        -->
 
           <h1 id="7">Source Control</h1>
-            <p style="margin-top:7px;">As long as you checked the 'Create local git repository' back in step 1, if you change or add something in a file, that file should show up Modified in Xcode, as seen by the 'M' to the right of the file name
+          <p style="margin-top:7px;">As long as you checked the 'Create local git repository' back in step 1, if you change or add something in a file, that file should show up modified in Xcode, as seen by the 'M' to the right of the file name
           </p>
           <img src="images/git1.png"/>
           <p>Let's say we want to commit this change, we can do this two ways. The first being through the GUI of Xcode. First, right click on the modified file, and then select Source Control->Commit Selected Files.
@@ -165,7 +168,23 @@ while (!infile.eof()) {
           <img src="images/git4.png"/>
           <p>To add a file to your git repo on the command line, simply type <code> git add mynewfile.h </code> and then when you type <code> git status </code> the newly added file should show up as added. Then simply write, as seen above, <code> git commit -am "My commit message: Commiting my new file"</code> and your newly added file will be commited.
           </p>
-          <hr>
+          <h1 id="7">Testing on CAEN</h1>
+          <p style="margin-top:7px;">Development is awesome in Xcode, but you should be sure to consistently test your code in CAEN, since that is typically the enviroment where your code will be graded. We've used a couple different methods to share code easily between your Mac and CAEN.</p>
+          <h4>Option 1</h4>
+          <p style="margin-top:7px;">The first method is setting up a git repo on either <a hred="http://ottosipe.github.io/git-notes/" target="_blank">CAEN</a> or Github (or others like Bitbucket), and cloning the same repo on your CAEN. This isn't a git tutorial, so look other places for more help with that. Then you can just push from your mac and pull from CAEN whenever you want to test.</p>
+          <h4>Option 2</h4>
+          <p style="margin-top:7px;">The second method is to use scp. In Terminal, cd to your project folder, where you should see project1.xcodeproj and another directory called project1. This inner 'project1' directory should contain your code. To copy all of your code into CAEN and then test, do the following:</p>
+<pre>
+$ scp -r project1 uniqname@login.engin.umich.edu:~/classDir
+$ ssh uniqname@login.engin.umich.edu
+$ cd classDir/project1
+</pre>
+
+          <p>Then just compile and test your program! If you notice any new bugs or compilation errors, there are some common causes due to the differences between Xcode and CAEN:
+            <ul>
+              <li>Xcode automatically includes some files. Explicitly '#include' any libraries or files you need.</li>
+            </ul>
+          </p>
         </section>
 
         <aside id="sidebar">

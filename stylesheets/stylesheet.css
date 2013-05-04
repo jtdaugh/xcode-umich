@@ -155,8 +155,8 @@ header a.button {
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
 aside a.button {
-  width: 190px;
-  min-width: 190px;
+  min-width: 180px;
+  max-width: 180px;
   padding:15px;
   display: block;
   background-color: #2e7bcf;
@@ -247,9 +247,9 @@ form {
 
 .block-m {
   position:absolute;
-  top:-10px;
-  right:-34px;
-  width:250px;
+  top:-4px;
+  right:-25px;
+  width:230px;
 }
 
 .side-header {
@@ -415,10 +415,10 @@ footer a:hover {
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .block-m {
-    top:-5px;
-    width: 200px;
+    top:4px;
+  /*  width: 190px;
     right:-8px;
-  }
+  */}
   .inner {
     width: 740px;
   }
@@ -503,7 +503,8 @@ footer a:hover {
     min-height: 0;
   }
   aside#sidebar a.button {
-    display: none;
+    /*display: none;*/
+    max-width: 100%;
   }
   #main-content h1:before,
   #main-content h2:before,
