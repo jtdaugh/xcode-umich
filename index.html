@@ -204,17 +204,28 @@ $ cd classDir/project1
         </aside>
       </div>
     </div>
+    <div id="backtotop"> ^ </div>
   <script type="text/javascript">     
     var $root = $('html, body');
-$('a').click(function() {
-    var href = $.attr(this, 'href');
-    $root.animate({
+    $('a').click(function() {
+      var href = $.attr(this, 'href');
+      $root.animate({
         scrollTop: $(href).offset().top
-    }, 500, function () {
+      }, 500, function () {
         window.location.hash = href;
-    });
+      });
     return false;
-});
+    });
+    $(window).scroll(function() {
+      if($(this).scrollTop() != 0) {
+        $('#backtotop').fadeIn();
+      } else {
+        $('#backtotop').fadeOut();
+      }
+    });
+    $('#backtotop').click(function() {
+      $('body,html').animate({scrollTop:0},800);
+    });
   </script>
   </body>
 </html>

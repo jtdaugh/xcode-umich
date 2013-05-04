@@ -212,6 +212,37 @@ ul, ol, dl {
 
 /* COMMON STYLES */
 
+#backtotop {
+  cursor : pointer;
+  display : none;
+  margin : 0px;
+  position : fixed;
+  bottom : 15px;
+  right:15px;
+  width: 30px;
+  padding : 4px 10px 0;
+  text-align : center;
+  background-color : #000;
+  border-radius : 8px;
+  -webkit-border-radius : 8px;
+  -moz-border-radius : 8px;
+  filter : alpha(opacity=60);
+  -khtml-opacity : 0.6;
+  -moz-opacity : 0.6;
+  opacity : 0.6;
+  color : #FFF;
+  font-size : 30px;
+  z-index : 1000;
+}
+#backtotop:hover
+{
+  filter : alpha(opacity=90);
+  -khtml-opacity : 0.9;
+  -moz-opacity : 0.9;
+  opacity : 0.9;
+}
+
+
 hr {
   height: 1px;
   line-height: 1px;
