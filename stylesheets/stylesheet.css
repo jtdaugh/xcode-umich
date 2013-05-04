@@ -155,9 +155,9 @@ aside a.button {
   display: block;
   background-color: #2e7bcf;
     color: #fff;
-  border-radius: 10px;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
+  border-radius: 5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
   margin-bottom: 20px;
   font-size: 15px;
 }
@@ -165,11 +165,6 @@ aside a.button:hover {
   
   background-color: #3985d8;
     color: #eee;
-  border-radius: 10px;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  margin-bottom: 20px;
-  font-size: 15px;
 }
 
 code, pre {
@@ -406,9 +401,9 @@ footer a:hover {
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .block-m {
-    top:15px;
+    top:-5px;
     width: 200px;
-    right:5px;
+    right:-8px;
   }
   .inner {
     width: 740px;
