@@ -45,13 +45,13 @@
 
           <h1 id="1">Creating the Project</h1>
           <p style="margin-top:7px;">After opening Xcode, go to File->New->Project</p>
-          <img src="images/MenuBar.png"/>
+          <img src="images/create1.png"/>
           <p>In the OS X section, select 'Application' and then select the 'Command Line Tool' option. Then Press Next</p>
-          <img src="images/ZoomedType.png">
+          <img src="images/create2.png">
           <p>Name your project and set it's 'Type' to C++</p>
-          <img src="images/ZoomedTitle.png">
+          <img src="images/create3.png">
           <p>On the next screen select where you your project will be saved and remember to check 'Create local git repository for this project'</p>
-          <img src="images/GitCheck.png">
+          <img src="images/create4.png">
           
           
           <h1 id="2">Command Line Arguments</h1>
@@ -83,12 +83,12 @@
           </p>
           <p>There is no straightforward way to do this in Xcode, but there is a somewhat simple workaround. First, run your project and make sure it outputs "Hello, World!" to the Xcode Console. Then to add your input file, right click on your executable name in the 'Products' group in the Xcode Project Navigator and select 'Show In Finder' 
           </p>
-          <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
+          <img src="images/redirect1.png">
           <p>Put your input text file in the same directory as your executable (this way Xcode can find it when it is running your program)
           </p>
           <p>Next go to Project->Edit Scheme and add an environment variable with the value of your text file name
           </p>
-          <img src="images/EnvironmentVar.png">
+          <img src="images/redirect2.png">
           <p>Finally, in your main function (before you do any input processing) add the following:</br> 
 <pre>
 ifstream arq(getenv("MYARQ"));
@@ -116,7 +116,7 @@ while (!infile.eof()) {
           <h4>Option 1</h4>
           <p style="margin-top:7px;">The first option is to place the file(s) into the products directory where the excecutable is.
             <br>Right click on the products directory and click Show in Finder. Put your input files in there, and find your output files there after running.</p>
-          <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
+          <img src="images/redirect1.png" alt="fuckyouandrew.com">
           
           <h4 style="margin-top:15px;">Option 2</h4>
           <p style="margin-top:7px;">Another option is to create the input files right within Xcode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within Xcode.
@@ -149,20 +149,20 @@ while (!infile.eof()) {
           <h1 id="7">Source Control</h1>
             <p style="margin-top:7px;">As long as you checked the 'Create local git repository' back in step 1, if you change or add something in a file, that file should show up Modified in Xcode, as seen by the 'M' to the right of the file name
           </p>
-          <img src="images/GitModified.png"/>
+          <img src="images/git1.png"/>
           <p>Let's say we want to commit this change, we can do this two ways. The first being through the GUI of Xcode. First, right click on the modified file, and then select Source Control->Commit Selected Files.
           </p>
-          <img src="images/CommitMenu.png"/>
+          <img src="images/git2.png"/>
           <p> Then a screen with the diff of the previous commit and your soon to be new commit will appear, add a commit message at the bottom and then select the 'Commit X Files' button to commit the changes 
           </p>
-          <img src="images/AcutalCommit.png"/>
+          <img src="images/git3.png"/>
           <p>You can also do this through using the command line: Make a change to a file in your project, it will show up as Modified in Xcode, then on the command line, go to the path of your project. If you type <code> git status</code> you should see that the file you changed is listed as modified. 
           </p>
           <p>To commit the file, simply type <code> git commit -am "My commit message"</code> and this will automatically commit any tracked files (in this case, just our modified file)
           </p>
           <p>To add files to your git repo, in Xcode, add a new file simply with File->New File. An 'A' should show up next to your new file, showing it has been added since the last commit. To commit through Xcode use the same steps from above: Right click file->Source Control->Commit Selected Files, and then write your commit message and commit.
           </p>
-          <img src="images/GitAdded.png"/>
+          <img src="images/git4.png"/>
           <p>To add a file to your git repo on the command line, simply type <code> git add mynewfile.h </code> and then when you type <code> git status </code> the newly added file should show up as added. Then simply write, as seen above, <code> git commit -am "My commit message: Commiting my new file"</code> and your newly added file will be commited.
           </p>
           <hr>

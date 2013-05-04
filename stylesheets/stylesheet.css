@@ -107,6 +107,12 @@ header h2 {
 
 #main-content img {
   max-width: 100%;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 14px rgba(50, 50, 50, 0.51);
+  -moz-box-shadow:    2px 2px 14px rgba(50, 50, 50, 0.51);
+  box-shadow:         2px 2px 14px rgba(50, 50, 50, 0.51);
 }
 
 aside#sidebar {
@@ -254,7 +260,7 @@ form {
 
 #main-content h1 {
   font-family:  'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 2.1em;
+  font-size: 2em;
   letter-spacing: -1px;
   color: #474747;
   margin-top: 15px;
