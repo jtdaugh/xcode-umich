@@ -57,22 +57,33 @@
           <img src="images/GitCheck.png">
           
           <h2 id="2">Command Line Arguments</h2>
-            <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
-            Eos minus eveniet odio corporis id ea. 
-            Optio placeat fuckin' right, all right so you cry still, 
-            tears all in the pillow case excepturi optio tempore.
+          <p>Many projects will require your program to accept several command line arguments. 
+            Let's use an example where we have three arguments, arg1, arg2 and arg3. 
+            If you ran the excecutable from the command line, it would look something like this:
+            <code>
+              ./project1 arg1 arg2 arg3
+            </code>
           </p>
-          <p>Dolore accusantium they lovin the crew rerum explicabo blanditiis omnis. 
-            Labore do you love this shit? temporibus est doloremque aut alias. 
-            Et aliquid recusandae laboriosam rem quia aut. 
-            Dicta neque similique quos consectetur illum dolores.
-          </p>
-          <p>Eius exercitationem quidem ipsam aohhh, that's how you feel man? 
-            cause we blowin like a c4. Quod saepe in qui doloribus eum. 
-            Sunt eum ullam odit amet exercitationem they lovin the crew neque. 
-            Qui sed enim consequuntur illum laboriosam voluptatem.
+          <p>
+            Sidenote: 
+            <code>
+              ./project1 arg1 arg2 arg3 < infile.txt
+            </code>
+            Here, infile.txt is NOT a command line argument visible to the program. 
+            It is a redirection to stdin, and is discussed in the next section.
           </p>
           
+          <p> Anyway... To add these three arguments in XCode, go to Project->Edit Scheme</p>
+          <img src="images/args1.png">
+          <p>...or click on the project name right next to the Run Button.</p>
+          <img src="images/args2.png">
+          <p>This window will pop up. If you see something different, make sure you have selected 'Run' on the left, and 'Arguments' on top</p>
+          <img src="images/args3.png">
+          <p>Add whatever arguments you need in the 'Arguments Passed on Launch' box, and click okay. In this case, we add arg1, arg2 and arg3.</p>
+          <img src="images/args4.png">
+          <p>Voila, you will now have these three arguments acessible to you as argv[1], 2 and 3.
+
+
           <h2 id="3">Input Redirection - stdin</h2>
             <p>Yolo ipsum atque ullam but seeing my family have it all harum delectus quo. 
             Eos minus eveniet odio corporis id ea. 
