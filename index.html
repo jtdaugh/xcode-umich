@@ -14,14 +14,14 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>C++ Development in XCode</title>
+    <title>C++ Development in Xcode</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>C++ in XCode</h1>
-        <h2>Tips for C++ development in XCode. Tuned to the needs of many classes at Michigan.</h2>
+        <h1>C++ in Xcode</h1>
+        <h2>Tips for C++ development in Xcode. Tuned to the needs of many classes at Michigan.</h2>
         <!-- <a href="https://github.com/jtdaugh/xcode-umich" class="button"><small>View project on</small>GitHub</a> -->
         <img class="block-m" src="images/block_m.png"/>
         <!-- <div style="clear:both;"/> -->
@@ -44,7 +44,7 @@
 
 
           <h1 id="1">Creating the Project</h1>
-          <p style="margin-top:7px;">After opening XCode, go to File->New->Project</p>
+          <p style="margin-top:7px;">After opening Xcode, go to File->New->Project</p>
           <img src="images/MenuBar.png"/>
           <p>In the OS X section, select 'Application' and then select the 'Command Line Tool' option. Then Press Next</p>
           <img src="images/ZoomedType.png">
@@ -66,7 +66,7 @@
             Sidenote: <code>./project1 arg1 arg2 arg3 < infile.txt</code> Here, infile.txt is NOT a command line argument visible to the program. 
             It is a redirection to stdin, and is discussed in the next section.
           </p>
-          <p> Anyway... To add these three arguments in XCode, go to Project->Edit Scheme</p>
+          <p> Anyway... To add these three arguments in Xcode, go to Project->Edit Scheme</p>
           <img src="images/args1.png">
           <p>...or click on the project name right next to the Run Button.</p>
           <img src="images/args2.png">
@@ -81,10 +81,10 @@
             <p style="margin-top:7px;">Let's say your project spec wants you just read input from cin, something like this:</p>
             <code> ./myExecutable < inputFile.txt </code>
           </p>
-          <p>There is no straightforward way to do this in XCode, but there is a somewhat simple workaround. First, run your project and make sure it outputs "Hello, World!" to the Xcode Console. Then to add your input file, right click on your executable name in the 'Products' group in the XCode Project Navigator and select 'Show In Finder' 
+          <p>There is no straightforward way to do this in Xcode, but there is a somewhat simple workaround. First, run your project and make sure it outputs "Hello, World!" to the Xcode Console. Then to add your input file, right click on your executable name in the 'Products' group in the Xcode Project Navigator and select 'Show In Finder' 
           </p>
           <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
-          <p>Put your input text file in the same directory as your executable (this way XCode can find it when it is running your program)
+          <p>Put your input text file in the same directory as your executable (this way Xcode can find it when it is running your program)
           </p>
           <p>Next go to Project->Edit Scheme and add an environment variable with the value of your text file name
           </p>
@@ -102,7 +102,7 @@ cin.rdbuf(arq.rdbuf());
           
 
           <h1 id="4">Input and Output files - fstream</h1>
-           <p style="margin-top:7px;">Using ifstream and ofstream is pretty simple in XCode, and there are (at least) two methods to do so. Here's an example that uses an ifstream. It will copy the contents from file1.txt to file2.txt:</p>
+           <p style="margin-top:7px;">Using ifstream and ofstream is pretty simple in Xcode, and there are (at least) two methods to do so. Here's an example that uses an ifstream. It will copy the contents from file1.txt to file2.txt:</p>
            
            <pre>
 ifstream infile("file1.txt");
@@ -119,19 +119,19 @@ while (!infile.eof()) {
           <img src="images/ShowInFinder.png" alt="fuckyouandrew.com">
           
           <h4 style="margin-top:15px;">Option 2</h4>
-          <p style="margin-top:7px;">Another option is to create the input files right within XCode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within XCode.
-            <br>First, create a new empty file in XCode via File->New->File (or skip this and drag a file into XCode).</p>
+          <p style="margin-top:7px;">Another option is to create the input files right within Xcode and then modify 'Copy Files' in the Build Phase. This is a more complicated one-time setup, but will then allow you to edit the input file right within Xcode.
+            <br>First, create a new empty file in Xcode via File->New->File (or skip this and drag a file into Xcode).</p>
           <p>Then, click on the project name right above your list of files. Go to the Build Phases tab, and you'll see this:</p>
           <img src="images/fstream3.png">
           <p>Add your input file to the copy files section. Make sure that 'Products Directory' is the Destination, subpath is empty, and 'Copy only when installing' is unchecked. <small>You may notice a project1.1 as a copy file. Feel free to remove that.</p>
           <img src="images/fstream4.png">
-          <p>You're all set. Modify the input file in XCode, and it will copy it into the products directory when you Run. The output file will be in the products directory like in Option 1.</p>
+          <p>You're all set. Modify the input file in Xcode, and it will copy it into the products directory when you Run. The output file will be in the products directory like in Option 1.</p>
           
 
           <h1 id="5">Debugging</h1>
-          <p style="margin-top:7px;">Debugging is pretty awesome in XCode, and will save you a lot of headache versus using GDB via the command line. To place a breakpoint at a line, click the area immediately to the left of that line of code.</p>
+          <p style="margin-top:7px;">Debugging is pretty awesome in Xcode, and will save you a lot of headache versus using GDB via the command line. To place a breakpoint at a line, click the area immediately to the left of that line of code.</p>
           <img src="images/debug1.png">
-          <p>To enable breakpoints, make sure the 'Breakpoints' button on the top XCode toolbar is turned on. It will automatically turn on when you set your first breakpoint. In the Navigator on the left, there is also a Breakpoints tab. Here, you can see all of your breakpoints by file, and modify &amp; delete the breakpoints. With this tab selected, the '+' in the bottom left corner of XCode will allow you to add breakpoints as well. Turning on exception breakpoints can be useful as it occasionally will indicate the bring you to the of a seg fault.</p>
+          <p>To enable breakpoints, make sure the 'Breakpoints' button on the top Xcode toolbar is turned on. It will automatically turn on when you set your first breakpoint. In the Navigator on the left, there is also a Breakpoints tab. Here, you can see all of your breakpoints by file, and modify &amp; delete the breakpoints. With this tab selected, the '+' in the bottom left corner of Xcode will allow you to add breakpoints as well. Turning on exception breakpoints can be useful as it occasionally will indicate the bring you to the of a seg fault.</p>
           <img src="images/debug2.png">
 
           <p>When your project hits a breakpoint, you will be presented with the debug window. Here, you have a snapshot of active variables, and the usual options to 'Continue,' 'Step over,' 'Step Into' and 'Step Out.' If you don't see the debug window, you may have the console expanded too much, so click the button right above the right side of the console.</p>
@@ -147,20 +147,20 @@ while (!infile.eof()) {
        -->
 
           <h1 id="7">Source Control</h1>
-            <p style="margin-top:7px;">As long as you checked the 'Create local git repository' back in step 1, if you change or add something in a file, that file should show up Modified in XCode, as seen by the 'M' to the right of the file name
+            <p style="margin-top:7px;">As long as you checked the 'Create local git repository' back in step 1, if you change or add something in a file, that file should show up Modified in Xcode, as seen by the 'M' to the right of the file name
           </p>
           <img src="images/GitModified.png"/>
-          <p>Let's say we want to commit this change, we can do this two ways. The first being through the GUI of XCode. First, right click on the modified file, and then select Source Control->Commit Selected Files.
+          <p>Let's say we want to commit this change, we can do this two ways. The first being through the GUI of Xcode. First, right click on the modified file, and then select Source Control->Commit Selected Files.
           </p>
           <img src="images/CommitMenu.png"/>
           <p> Then a screen with the diff of the previous commit and your soon to be new commit will appear, add a commit message at the bottom and then select the 'Commit X Files' button to commit the changes 
           </p>
           <img src="images/AcutalCommit.png"/>
-          <p>You can also do this through using the command line: Make a change to a file in your project, it will show up as Modified in XCode, then on the command line, go to the path of your project. If you type <code> git status</code> you should see that the file you changed is listed as modified. 
+          <p>You can also do this through using the command line: Make a change to a file in your project, it will show up as Modified in Xcode, then on the command line, go to the path of your project. If you type <code> git status</code> you should see that the file you changed is listed as modified. 
           </p>
           <p>To commit the file, simply type <code> git commit -am "My commit message"</code> and this will automatically commit any tracked files (in this case, just our modified file)
           </p>
-          <p>To add files to your git repo, in XCode, add a new file simply with File->New File. An 'A' should show up next to your new file, showing it has been added since the last commit. To commit through XCode use the same steps from above: Right click file->Source Control->Commit Selected Files, and then write your commit message and commit.
+          <p>To add files to your git repo, in Xcode, add a new file simply with File->New File. An 'A' should show up next to your new file, showing it has been added since the last commit. To commit through Xcode use the same steps from above: Right click file->Source Control->Commit Selected Files, and then write your commit message and commit.
           </p>
           <img src="images/GitAdded.png"/>
           <p>To add a file to your git repo on the command line, simply type <code> git add mynewfile.h </code> and then when you type <code> git status </code> the newly added file should show up as added. Then simply write, as seen above, <code> git commit -am "My commit message: Commiting my new file"</code> and your newly added file will be commited.
