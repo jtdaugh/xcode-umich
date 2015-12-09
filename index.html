@@ -109,15 +109,13 @@
           <img src="images/redirect2.png">
           <p>Finally, in your main function (before you do any input processing) add the following:</br> 
 <pre>
-ifstream arq(getenv("MYARQ"));
-cin.rdbuf(arq.rdbuf());
+if (getenv("MYARQ")) {
+  ifstream arq(getenv("MYARQ"));
+  cin.rdbuf(arq.rdbuf());
+}
 </pre>
           </p>
-          <p>Now cin will behave the same as if you redirected the contents of a text file to a program, as seen above
-          </p>
-          <p><b>REMEMBER TO COMMENT THIS CODE OUT OR DELETE IT BEFORE YOU SUBMIT OR TEST ON CAEN, INPUT WILL NOT WORK IF THIS CODE IS STILL THERE</b>
-          </p>
-          
+          <p>Now cin will behave the same as if you redirected the contents of a text file to a program, as seen above. If you do not specify the <code>MYARQ</code> environment variable, then it will instead read from cin as normal.</p>
 
           <h1 id="4">Input and Output files - fstream</h1>
            <p style="margin-top:7px;">Using ifstream and ofstream is pretty simple in Xcode, and there are (at least) two methods to do so. Here's an example that uses an ifstream. It will copy the contents from file1.txt to file2.txt:</p>
